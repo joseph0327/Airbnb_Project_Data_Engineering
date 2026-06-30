@@ -1,0 +1,24 @@
+name: 'aws_dbt_snowflake_project'
+version: '1.0.0'
+
+profile: 'aws_dbt_snowflake_project'
+
+model-paths: ["aws_dbt_snowflake_project/models"]
+analysis-paths: ["aws_dbt_snowflake_project/analyses"]
+test-paths: ["aws_dbt_snowflake_project/tests"]
+seed-paths: ["aws_dbt_snowflake_project/seeds"]
+macro-paths: ["aws_dbt_snowflake_project/macros"]
+snapshot-paths: ["aws_dbt_snowflake_project/snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  aws_dbt_snowflake_project:
+    bronze:
+      +materialized: table
+      +schema: bronze
+    silver:
+      +materialized: table
+      +schema: silver
